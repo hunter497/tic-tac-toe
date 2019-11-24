@@ -1,0 +1,14 @@
+.cell {
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.row {
+    float: left;
+}
+
+.row-1 {
+    border-bottom: 3px solid black;
+}

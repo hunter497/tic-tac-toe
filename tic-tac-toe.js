@@ -14,6 +14,10 @@ const gameBoardModule = (() => {
         gameBoard.push('X');
     }
 
+    const playLocation = (location, playerSymbol) => {
+        gameBoard[location] = playerSymbol;
+    }
+
     const getGameStatus = () => {
         return gameBoard;
     }
@@ -40,7 +44,7 @@ const controlModule = (() => {
 const displayModule = (() => {
     const displayBoard = () => {
         const gameBoard = gameBoardModule.getGameStatus();
-        console.log(gameBoard);
+        
     }
     return {
         displayBoard,
@@ -49,12 +53,26 @@ const displayModule = (() => {
 
 // Player Factory
 const Player = (name) => {
-    return name;
+    const playX = location => {
+        gameBoardModule.playLocation(location, 'X');
+    }
+    const playO = location => {
+        gameBoardModule.playLocation(location, 'O');
+    }
+
+    return (name, playX, playO);
 }
 
 const init = () => {
     controlModule.resetBoard();
     displayModule.displayBoard();
 }
+
+// const gameLoop = (playerOne, playerTwo) => {
+//     let winCondition = false;
+//     while(winCondition == false) {
+
+//     }
+// }
 
 init();
